@@ -1,0 +1,217 @@
+<ng-template #alert>
+  <div class="bg-warning p-3 text-center mt-5 text-white rounded shadow ">
+    Espere Porfavor
+  </div>
+
+</ng-template>
+
+
+<div class="row ">
+
+  <div class="col-2 h-lvh bg-gradient-to-r from-cyan-500 to-blue-500  shadow-lg p-5">
+
+    <div *ngIf="userInfo ; else alert ">
+      <div class="mt-2 text-2xl text-center font-bold">
+        <div class="mb-4">
+          <img src="./assets/3eb4f94a-0a20-491d-a269-1aa49a2c4ca7.jfif" alt="">
+        </div>
+        <h1 class="  text-neutral-50 mb-2">
+          ¡Bienvenido!
+        </h1>
+        <span
+          class="principal-text  before:block before:absolute before:-inset-1  before:-skew-y-3 before:bg-amber-300   relative inline-block">
+          <span class="relative text-sky-600">{{userInfo.firstName}} </span>
+        </span>
+      </div>
+
+
+      <hr class="my-4 ">
+      <div class="text-neutral-50 ">
+        <h3 class="text-center font-bold text-2xl mb-4 text-amber-300 ">Información del Usuario</h3>
+        <p class="my-3 ">Nombre: <span class="font-bold">{{userInfo.firstName}} </span></p>
+        <p class="my-3 ">Apellido: <span class="font-bold">{{userInfo.lastName}}</span></p>
+        <p class="my-3 ">Edad: <span class="font-bold">{{userInfo.age}}</span></p>
+        <p class="my-3 ">Pais: <span class="font-bold">{{userInfo.country}} </span></p>
+        <p class="my-3 ">Email: <span class="font-bold">{{userInfo.email}}</span></p>
+        <p class="my-3 ">Telefono: <span class="font-bold">{{userInfo.phone}}</span></p>
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col backgroundPrincipal pb-5 px-0 ">
+    <div class="bg-gradient-to-r to-cyan-500 from-blue-500 text-white py-6 shadow-lg">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Título -->
+        <h1 class="text-4xl font-bold drop-shadow-md">
+          Gestión de Bienes Patrimoniales del Estado
+        </h1>
+
+        <!-- Opciones del Administrador -->
+        <div class="flex space-x-4">
+          <!-- Configuración -->
+          <button
+            class="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow transition"
+            title="Configuración"
+          >
+            <i class="bi bi-gear-fill mr-2"></i> Configuración
+          </button>
+          <!-- Cerrar Sesión -->
+          <button
+            class="flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg shadow transition"
+            title="Cerrar Sesión"
+          >
+            <i class="bi bi-box-arrow-right mr-2"></i> Cerrar Sesión
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-neutral-100 shadow m-5 p-5 rounded-md">
+      <h3 class="text-2xl mb-5 font-bold text-sky-600"> <i class="bi bi-ui-checks-grid"></i> OPCIONES
+        <hr class="text-orange-600 mt-1 ">
+      </h3>
+      <div class="d-flex mt-2 gap-10 justify-content-center ">
+        <button class="btn shadow-lg btn-success  font-bold h-24 w-64" routerLink="/user/register/pet"> <i class="bi bi-house-add"></i>  Agregar un Bien</button>
+        <button class="btn shadow-lg btn-primary  font-bold h-24 w-64 " routerLink="/user/list/bienes"> <i class="bi bi-card-list"></i>  Listar Todos los Bienes</button>
+      </div>
+    </div>
+
+
+    <div class="row">
+
+      <div *ngIf="bienInfo ; else alert" class="col bg-neutral-100 shadow mx-5 p-5 rounded-md">
+
+        <h3 class="mb-5 font-bold text-2xl text-sky-600"> <i class="bi bi-ui-radios"></i> Ultimos bienes registrados <span
+            class="font-bold text-sky-600">({{bienInfo.slice(0, 5).length}})</span>
+          <hr class="text-blue-600 mt-1 ">
+        </h3>
+
+        <div class="row d-flex justify-content-center  align-items-center gap-3  ">
+
+          <div class="relative overflow-x-auto">
+            <table class="w-full text-xs text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-900 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                  <th scope="col" class="px-6 py-3">
+                    Nombre
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Descripción
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Fecha Adquisicion
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Valor
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Numero de serie
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Marca
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Modelo
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Categoria
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Ubicación
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Usuario Creador
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Usuario Responsable
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bien of bienInfo.slice(0, 5)" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-xs ">
+                  <th scope="row" class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                   {{bien.nombre}}
+                  </th>
+                  <td class="px-6 py-4">
+                    {{bien.descripcion}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.fechaAdquisicion}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.valorAdquisicion | currency}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.numeroSerie}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.marca}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.modelo}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.categoria}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.ubicacion}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.usuarioCreador}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{bien.usuarioResponsable}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <!-- <div class="col bg-neutral-100 shadow mx-5 p-5 rounded-md">
+        <h3 class="mb-5 text-2xl font-bold text-2xl">Mis Citas <span class="font-bold text-amber-600">
+            ({{citesInfo?.length}}) </span>
+          <hr class="text-orange-600 mt-1 ">
+        </h3>
+
+
+        <div class="row d-flex justify-content-center  align-items-center gap-3  ">
+
+          <div *ngFor="let cite of citesInfo" class="card shadow-lg" style="width: 18rem;">
+            <div class="card-body ">
+              <h5 class="text-xl font-bold text-amber-600 ">{{cite.servicio}}</h5>
+              <p class="card-text my-2"><span>Dia: <span>{{cite.fecha | date}}</span></span></p>
+              <p class="card-text my-2"><span>Mascota: <span>{{cite.mascota.nombre_mascota}}</span> </span></p>
+
+              <button (click)="deleteCite(cite.id)" class="btn shadow-lg btn-danger my-1">Cancelar</button>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+
+
+
+      </div> -->
+
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+
+</div>

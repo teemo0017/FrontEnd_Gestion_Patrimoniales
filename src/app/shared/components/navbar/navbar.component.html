@@ -1,0 +1,32 @@
+<nav class=" navbar d-flex justify-content-evenly  bg-black ">
+
+  <div class="animate__animated animate__zoomInUp  navbar-link   ">
+
+    <a class="  d-flex d-flex align-items-center " routerLink="veterinaria/inicio" >
+      <img src="/assets/dog-svgrepo-com.svg"   width="40" height="40">
+    <span class="mx-2 principal-text">  V. Hermosas</span>
+      <span class="principal-text  before:block before:absolute before:-inset-1  before:-skew-y-3 before:bg-amber-300   relative inline-block">
+        <span class="relative text-white">Patitas </span>
+      </span>
+    </a>
+
+  </div>
+
+  <div>
+    <a class="mx-3 fw-lighter " href="">INICIO</a>
+    <a class="mx-3 fw-lighter  " href="">SOBRE NOSOTROS</a>
+
+  </div>
+
+  <div>
+    <button *ngIf="(data$ | async)?.token == '' && (data$ | async)?.userId == 0  ; else dashboard " class="btn btn-light" routerLink="/user/login"  >Login</button>
+    <button *ngIf="(data$ | async)?.token !== '' " class="btn btn-danger ml-5"  (click)="logout()" >Logout</button>
+    <!-- <p  class="text-white">tengo info xd {{(data$ | async)?.token}}</p> -->
+  </div>
+
+  <ng-template #dashboard>
+    <button class="btn btn-light" routerLink="/user/dashboard" >Ir a Dashboard</button>
+    </ng-template>
+
+
+</nav>

@@ -1,0 +1,7 @@
+img {
+  border-radius: 1000px;
+}
+
+.backgroundPrincipal{
+  background-image: url("/assets/background.jpg");
+}

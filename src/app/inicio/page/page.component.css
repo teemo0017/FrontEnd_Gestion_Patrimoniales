@@ -1,0 +1,29 @@
+
+.banner-card{
+  position: relative;
+}
+
+.banner-text{
+
+  padding: 30px;
+  text-shadow: 4px 3px 6px #000000;
+  position: absolute;
+  top: 5%;
+  left: 3%;
+}
+
+.imagen-inicio{
+  max-width: 100%;
+}
+
+h1{
+  font-size: 75px;
+}
+
+.primary-text{
+  font-family: "Concert One", sans-serif;
+}
+.second-text{
+  width: 600px;
+  font-family: "Concert One", sans-serif;
+}
