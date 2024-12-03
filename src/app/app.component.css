@@ -5,3 +5,7 @@ a {
   color: blue;
   text-decoration: none; /* no underline */
 }
+
+.row{
+  --bs-gutter-x: 0 !important ;
+}

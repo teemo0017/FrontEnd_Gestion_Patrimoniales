@@ -1,1 +1,70 @@
- <router-outlet></router-outlet>
+<ng-template #alert>
+  <div class="bg-warning p-3 text-center mt-5 text-white rounded shadow ">
+    Espere Porfavor
+  </div>
+
+</ng-template>
+
+<div class="row">
+
+
+  <div *ngIf="showSidebar" class="col-2 h-auto bg-gradient-to-r from-cyan-500 to-blue-500  shadow-lg p-5">
+
+    <div *ngIf="userInfo ; else alert ">
+      <div class="mt-2 text-2xl text-center font-bold">
+        <div class="mb-4">
+          <img src="./assets/3eb4f94a-0a20-491d-a269-1aa49a2c4ca7.jfif" alt="">
+        </div>
+        <h1 class="  text-neutral-50 mb-2">
+          ¡Bienvenido!
+        </h1>
+        <span
+          class="principal-text  before:block before:absolute before:-inset-1  before:-skew-y-3 before:bg-amber-300   relative inline-block">
+          <span class="relative text-sky-600">{{userInfo.firstName}} </span>
+        </span>
+      </div>
+
+
+      <hr class="my-4 ">
+      <div class="text-neutral-50 ">
+        <h3 class="text-center font-bold text-2xl mb-4 text-amber-300 ">Información del Usuario</h3>
+        <p class="my-3 ">Nombre: <span class="font-bold">{{userInfo.firstName}} </span></p>
+        <p class="my-3 ">Apellido: <span class="font-bold">{{userInfo.lastName}}</span></p>
+        <p class="my-3 ">Edad: <span class="font-bold">{{userInfo.age}}</span></p>
+        <p class="my-3 ">Pais: <span class="font-bold">{{userInfo.country}} </span></p>
+        <p class="my-3 ">Email: <span class="font-bold">{{userInfo.email}}</span></p>
+        <p class="my-3 ">Telefono: <span class="font-bold">{{userInfo.phone}}</span></p>
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-10">
+
+    <div *ngIf="showSidebar"  class="bg-gradient-to-r to-cyan-500 from-blue-500 text-white py-6 shadow-lg">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Título -->
+        <h1 class="text-4xl font-bold drop-shadow-md">
+          Gestión de Bienes Patrimoniales del Estado
+        </h1>
+
+        <!-- Opciones del Administrador -->
+        <div class="flex space-x-4">
+          <!-- Cerrar Sesión -->
+          <button class="flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg shadow transition"
+          routerLink="/user/login"
+            title="Cerrar Sesión">
+            <i class="bi bi-box-arrow-right mr-2"></i> Cerrar Sesión
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <router-outlet>
+
+    </router-outlet>
+  </div>
+
+</div>

@@ -1,8 +1,9 @@
 export interface userInfo {
-  firstName:             string;
-  lastName:              string;
-  email:                 string;
-  country:               string;
-  phone:                 string;
-  age:                   number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  country: string;
+  phone: string;
+  age: number;
+  role: string;
 }

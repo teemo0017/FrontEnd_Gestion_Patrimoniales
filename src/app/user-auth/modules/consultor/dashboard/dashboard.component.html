@@ -1,0 +1,83 @@
+<body>
+
+
+
+  <ng-template #alert>
+    <div class="bg-warning p-3 text-center mt-5 text-white rounded shadow ">
+      Espere Porfavor
+    </div>
+
+  </ng-template>
+
+
+  <div
+   class="backgroundPrincipal pb-5 pt-5 ">
+
+
+    <div *ngIf="bienInfo ; else alert" class=" bg-neutral-100 shadow m-5 p-5 rounded-md">
+
+      <h3 class="mb-5 font-bold text-2xl text-sky-600"> <i class="bi bi-ui-radios"></i> Lista de Bienes <span
+          class="font-bold text-sky-600">({{bienInfo.length}})</span>
+        <hr class="text-blue-600 mt-1 ">
+      </h3>
+      <button class="btn shadow-lg btn-success  font-bold h-10 w-30 mb-3" (click)="descargarPdf()"> <i
+        class="bi bi-house-add"></i>  Imprimir PDF</button>
+      <div class="row d-flex justify-content-center  align-items-center gap-3  ">
+
+        <div class="relative overflow-x-auto">
+          <table class="w-full text-xs text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-900 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-6 py-3">
+                  Nombre
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Descripción
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Numero de serie
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Marca
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Modelo
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Categoria
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let bien of bienInfo"
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-xs ">
+                <th scope="row" class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                  {{bien.nombre}}
+                </th>
+                <td class="px-6 py-4">
+                  {{bien.descripcion}}
+                </td>
+                <td class="px-6 py-4">
+                  {{bien.numeroSerie}}
+                </td>
+                <td class="px-6 py-4">
+                  {{bien.marca}}
+                </td>
+                <td class="px-6 py-4">
+                  {{bien.modelo}}
+                </td>
+                <td class="px-6 py-4">
+                  {{bien.categoria}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</body>

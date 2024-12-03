@@ -1,0 +1,6 @@
+body {
+  margin: 0 !important; /* Elimina los márgenes predeterminados */
+  height: 100vh  !important; /* Altura completa de la ventana del navegador */
+  background: url('/assets/background.jpg') no-repeat center center fixed  !important; /* Ajusta la URL de tu imagen */
+  background-size: cover !important; /* Asegura que el fondo cubra todo el espacio disponible */
+}

@@ -1,4 +1,5 @@
 export interface Bien {
+  id? : number
   nombre:            string;
   descripcion:       string;
   fechaAdquisicion:  Date;

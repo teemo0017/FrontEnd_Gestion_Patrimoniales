@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageLoginComponent } from './login/page/page.component';
-import { PageRegisterComponent } from './register/page/page.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddPetsComponent } from './dashboard/components/add-pets/add-pets.component';
-import { AddCitaComponent } from './dashboard/components/add-cita/add-cita.component';
-import { EditPetsComponent } from './dashboard/components/edit-pets/edit-pets.component';
-import { ListBienesComponent } from './dashboard/components/lista-bienes/list-bienes.component';
+import { PageLoginComponent } from './modules/login/page/page.component';
 
 
 const routes: Routes = [
@@ -15,28 +9,20 @@ const routes: Routes = [
     component: PageLoginComponent
   },
   {
-    path: 'register',
-    component: PageRegisterComponent
-
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+  },
+    {
+    path: 'consultor',
+    loadChildren: () => import('./modules/consultor/consultor.module').then(m => m.ConsultorModule)
   },
   {
-    path: 'dashboard',
-    component: DashboardComponent
+    path: 'gestionador',
+    loadChildren: () => import('./modules/gestionador/gestionador.module').then(m => m.GestionadorModule)
   },
   {
-    path: 'register/pet',
-    component : AddPetsComponent
-  },  {
-    path: 'register/cite',
-    component : AddCitaComponent
-  },
-  {
-    path: 'edit/pet/:id',
-    component : EditPetsComponent
-  },
-  {
-    path: 'list/bienes',
-    component : ListBienesComponent
+    path: 'auditor',
+    loadChildren: () => import('./modules/auditor/auditor.module').then(m => m.AuditorModule)
   },
   {
     path: '**',

@@ -1,0 +1,141 @@
+<section class="">
+  <div class="container-lg py-5 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="my-4">
+
+          <div class="row g-0 bg-slate-50 shadow-lg">
+
+
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="/assets/file-jf4BNGmDahwXfGqBgyq08Lrg.png" alt="Sample photo" class="img-fluid h-100" />
+            </div>
+
+
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5  text-lime-800 text-uppercase">Agregar Bien </h3>
+
+
+                <form (ngSubmit)="addPet()">
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="form3Example1m">Nombre del Bien</label>
+
+                        <input type="text" [(ngModel)]="bien.nombre" name="nombre"
+                          class=" form-control form-control-lg" />
+
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="form3Example1n">Descripción del bien</label>
+                        <input type="text" [(ngModel)]="bien.descripcion" name="descripcion"
+                          class="form-control form-control-lg" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="form3Example1m">Fecha Adquisición</label>
+
+                        <input type="date" [(ngModel)]="bien.fechaAdquisicion" name="fechaAdquisicion"
+                          class="form-control form-control-lg" />
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="form3Example1n">Categoria</label>
+
+                        <select [(ngModel)]="bien.categoriaId" class="form-control form-control-lg" name="categoriaId">
+                          <option *ngFor="let categoria of categoriasBienes" [value]="categoria.id">{{categoria.nombre}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form3Example8">Modelo</label>
+
+                    <input type="text" [(ngModel)]="bien.modelo" name="modelo" class="form-control form-control-lg" />
+
+                  </div>
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form3Example8">Valor</label>
+
+                    <input type="number" [(ngModel)]="bien.valorAdquisicion" name="valorAdquisicion"
+                      class="form-control form-control-lg" />
+
+                  </div>
+
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form3Example8">Marca</label>
+
+                    <input type="text" [(ngModel)]="bien.marca" name="marca" class="form-control form-control-lg" />
+
+                  </div>
+
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form3Example8">Responsable</label>
+                    <select [(ngModel)]="bien.responsableId" class="form-control form-control-lg" name="responsableId">
+                      <option *ngFor="let responsable of responsables" [value]="responsable.id">{{responsable.nombre}}
+                      </option>
+
+                    </select>
+                  </div>
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form3Example8">Ubicación</label>
+
+                    <input type="text" [(ngModel)]="bien.ubicacion" name="ubicacion"
+                      class="form-control form-control-lg" />
+
+                  </div>
+
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form3Example9">Numero de serie</label>
+
+                    <input type="text" [(ngModel)]="bien.numeroSerie" name="numeroSerie"
+                      class="form-control form-control-lg" />
+
+                  </div>
+
+
+                  <div class="d-flex justify-content-between pt-3">
+                    <button type="button" routerLink="/user/gestionador/dashboard"
+                      class="btn btn-light btn-lg">Volver</button>
+                    <button type="submit" class="btn bg-lime-500 text-slate-50  btn-lg ms-2">Enviar</button>
+                  </div>
+
+
+
+                </form>
+
+              </div>
+
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
